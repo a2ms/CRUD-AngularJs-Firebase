@@ -1,0 +1,37 @@
+{
+  "name": "my_news",
+  "version": "1.0.0",
+  "description": "cms my_news",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "gulp build",
+    "start": "node app.js",
+    "preinstall": "npm i -g gulp-cli && npm install --save gulp gulp-inject gulp-concat gulp-rename run-sequence",
+    "postinstall": "gulp build"
+  },
+  "keywords": [
+    "my_news",
+    "angularjs"
+  ],
+  "author": "azis",
+  "license": "ISC",
+  "dependencies": {
+    "@uirouter/angularjs": "^1.0.13",
+    "angular": "^1.6.8",
+    "angularfire": "^2.3.0",
+    "express": "^4.16.2",
+    "firebase": "^4.10.1",
+    "gulp": "^3.9.1",
+    "gulp-cache": "^1.0.2",
+    "gulp-clean-css": "^3.9.2",
+    "gulp-cli": "^2.0.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-imagemin": "^4.1.0",
+    "gulp-inject": "^4.3.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^3.0.0",
+    "nodemon": "^1.14.11",
+    "run-sequence": "^2.2.1"
+  }
+}

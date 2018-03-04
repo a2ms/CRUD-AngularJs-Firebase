@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>My News</title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <link href='//fonts.googleapis.com/css?family=Roboto:400,700,300|Material+Icons' rel='stylesheet' type='text/css'>
+    <!-- inject:css -->
+    <!-- endinject -->
+	
+	<script src="//www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+	
+	<script>
+	  // Initialize Firebase
+	  var config = {
+		apiKey: "AIzaSyDuQWav1nxgDpXTMhruRv0t9LJk50Axo_Y",
+		authDomain: "my-news-7415.firebaseapp.com",
+		databaseURL: "//my-news-7415.firebaseio.com",
+		projectId: "my-news-7415",
+		storageBucket: "my-news-7415.appspot.com",
+		messagingSenderId: "621190054073"
+	  };
+	  firebase.initializeApp(config);
+	</script>
+  </head>
+  <body  ng-app="app">
+    
+
+          <ui-view></ui-view>
+
+          
+  
+    <!-- inject:js -->
+    <!-- endinject -->
+	<script src="cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+  </body>
+</html>

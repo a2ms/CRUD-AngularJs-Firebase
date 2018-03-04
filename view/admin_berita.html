@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png" />
+    <link rel="icon" type="image/png" href="../assets/img/favicon.png" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>My_News - Detail Berita</title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+    <!-- Bootstrap core CSS     -->
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
+    <!--  Material Dashboard CSS    -->
+    <link href="../assets/css/material-dashboard.css?v=1.2.0" rel="stylesheet" />
+    <!--  CSS for Demo Purpose, don't include it in your project     -->
+    <link href="../assets/css/demo.css" rel="stylesheet" />
+    <!--     Fonts and icons     -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300|Material+Icons' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="sidebar" data-color="purple" data-image="../assets/img/sidebar-1.jpg">
+            <!--
+        Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
+
+        Tip 2: you can also add an image using data-image tag
+    -->
+            <div class="logo">
+                <a class="simple-text">
+                    My_News
+                </a>
+            </div>
+            <div class="sidebar-wrapper">
+                <ul class="nav">
+                    <li class="active">
+                        <a href="admin_berita.html">
+                            <i class="material-icons">dashboard</i>
+                            <p>List Berita</p>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="main-panel">
+            <nav class="navbar navbar-transparent navbar-absolute">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <button class="btn btn-primary btn-round" data-toggle="modal" data-target="#myModalTambah">
+	                      Tambah  Berita
+	                    </button>
+                    </div>
+                    
+                </div>
+            </nav>
+            <div class="content">
+	            <div class="container-fluid">
+	                <div class="row">
+	                    <div class="col-md-12">
+	                        <div class="card">
+	                            <div class="card-header" data-background-color="purple">
+	                                <h4 class="title">List Berita</h4>
+	                                <p class="category">Berita di Daerah Istimewa Yogyakarta</p>
+	                            </div>
+	                            <div class="card-content table-responsive">
+	                                <table class="table">
+	                                    <thead class="text-primary">
+	                                    	<th>ID Berita</th>
+	                                    	<th>Judul Berita</th>
+											<th>Action</th>
+	                                    </thead>
+	                                    <tbody>
+	                                        <tr ng-repeat="list in Berita">
+                                                <td>{{list.id_berita}}</td>
+                                                <td>{{list.judul}}</td>
+                                                
+                                                <td class="td-actions text-right">
+													<button type="button" rel="tooltip" title="Detail Data" ng-click="detailData(list.$id)" data-toggle="modal" data-target="#myModalDetail"  class="btn btn-info btn-simple btn-xs">
+															<i class="material-icons">visibility</i>
+													</button>
+													<button type="submit" rel="tooltip" title="Ubah Data" ng-click="editPost(list.$id)" data-toggle="modal" data-target="#myModalEdit"  class="btn btn-success btn-simple btn-xs">
+															<i class="material-icons">edit</i>
+													</button>
+													<button type="submit" rel="tooltip" title="Hapus Data" data-toggle="modal" data-target="#myModalHapus" ng-click="deleteCnf(list)" class="btn btn-danger btn-simple btn-xs">
+															<i class="material-icons">close</i>
+													</button>												
+												</td>
+                                            </tr>
+                                        </tbody>
+	                                </table>
+	                            </div>
+	                        </div>
+							<div class="text-center">
+								<ul class="pagination pagination-info">
+									
+								</ul>
+							</div>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+            <footer class="footer">
+                <div class="container-fluid">
+                    
+                    <!-- <p class="copyright pull-right">
+                        &copy;
+                        <script>
+                            document.write(new Date().getFullYear())
+                        </script>
+                        <a href="http://www.creative-tim.com">Creative Tim</a>, made with love for a better web
+                    </p> -->
+                </div>
+            </footer>
+        </div>
+    </div>
+	
+	
+	<!-- Sart Modal Detail Data -->
+	<div class="modal fade" id="myModalDetail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					<i class="material-icons">clear</i>
+				</button>
+					<h4 class="modal-title">Detail Berita</h4>
+				</div>
+				<div class="modal-body">
+					<div class="form-group">
+						<label class="control-label">ID Berita</label>
+						<input type="text" ng-model="readData.id_berita" name="id_berita" id="id_berita" class="form-control" disabled>
+					</div>
+					<div class="form-group">
+						<label class="control-label">Judul Berita</label>
+						<input type="text" ng-model="readData.judul" name="judul_berita" id="judul_berita" class="form-control" disabled>
+					</div>
+					<div class="form-group">
+						<label class="control-label">Deskripsi Berita</label>
+						<input type="text" ng-model="readData.deskripsi" name="deskripsi_berita" id="deskripsi_berita" class="form-control" disabled>
+					</div>
+					
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	<!--  End Modal -->
+	
+	
+	<!-- Sart Modal Ubah Data -->
+	<div class="modal fade" id="myModalEdit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					<i class="material-icons">clear</i>
+				</button>
+					<h4 class="modal-title">Ubah Berita</h4>
+				</div>
+				<div class="modal-body">
+					
+					<div class="form-group">
+						<label class="control-label">Judul Berita</label>
+						<input type="text" ng-model="editPostData.judul" name="judul_berita" class="form-control" >
+					</div>
+					<div class="form-group">
+						<label class="control-label">Deskripsi Berita</label>
+						<input type="text" ng-model="editPostData.deskripsi" name="deskripsi_berita" class="form-control" >
+					</div>
+					
+					
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary btn-round" ng-click="updatePost(editPostData.$id)">Simpan Data</button>
+					<button type="button" class="btn btn-primary btn-round" data-dismiss="modal">Batal</button>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	<!--  End Modal -->
+	
+	<!-- Sart Modal Hapus Data -->
+	
+	<div class="modal fade" id="myModalHapus" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					<i class="material-icons">clear</i>
+				</button>
+					<h4 class="modal-title">Konfirmasi Hapus</h4>
+				</div>
+				<div class="modal-body">
+					
+					<h4 class="modal-title">Apakah Anda Yakin Menghapus Data ini?</h4>
+					
+				</div>
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-primary btn-round" ng-click="deletePost(deleteBerita)">Ya</button>
+					<button type="button" class="btn btn-primary btn-round" data-dismiss="modal">Batal</button>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+
+	<!--  End Modal -->
+	
+	<!-- Sart Modal Tambah Data -->
+	<form ng-submit="createPost()" method="post" enctype="multipart/form-data">
+	<div class="modal fade" id="myModalTambah" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					<i class="material-icons">clear</i>
+				</button>
+					<h4 class="modal-title">Tambah Berita</h4>
+				</div>
+				<div class="modal-body">
+					
+					<div class="form-group">
+						<label class="control-label">Id Berita</label>
+						<input type="text" ng-model="data.id_berita"  name="id_berita" class="form-control" >
+					</div>
+					<div class="form-group">
+						<label class="control-label">Judul Berita</label>
+						<input type="text" ng-model="data.judul_berita"  name="judul_berita" class="form-control" >
+					</div>
+					<div class="form-group">
+						<label class="control-label">Deskripsi Berita</label>
+						<input type="text" ng-model="data.deskripsi_berita"  name="deskripsi_berita" class="form-control" >
+					</div>
+					
+					
+				</div>
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-primary btn-round">Simpan Data</button>
+					<button type="button" class="btn btn-primary btn-round" data-dismiss="modal">Batal</button>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	</form>
+	<!--  End Modal -->
+	
+	
+</body>
+
+
+</html>

@@ -1,0 +1,30 @@
+image: 'node:carbon'
+
+before_script:
+  - 'npm set progress=false'
+  - 'npm install --silent'
+  - 'npm install -g gulp'
+  - 'gulp build'
+  
+stages:
+  - build
+  - clean_up
+    
+build_and_deploy_prod:
+  stage: build
+  script:
+    - 'npm run build'
+    - 'apt-get update -qy'
+    - 'apt-get install -y ruby ruby-dev rubygems-integration'
+    - 'gem install dpl'
+    - 'dpl --provider=heroku --app=portofolio-azis --api-key=f0c0b515-2344-4eae-9518-c057531c4b33'
+    
+  only:
+    - master
+    
+clean_up_job:
+  stage: clean_up
+  script:
+    - 'rm -rf node_modules'
+    - 'rm -rf ~/.node-gyp'
+  when: on_failure

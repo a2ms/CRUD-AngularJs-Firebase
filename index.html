@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>My News</title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <link href='//fonts.googleapis.com/css?family=Roboto:400,700,300|Material+Icons' rel='stylesheet' type='text/css'>
+    <!-- inject:css -->
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/bootstrap1.min.css">
+    <link rel="stylesheet" href="/assets/css/demo.css">
+    <link rel="stylesheet" href="/assets/css/material-dashboard.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <!-- endinject -->
+	
+	<script src="//www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+	
+	<script>
+	  // Initialize Firebase
+	  var config = {
+		apiKey: "AIzaSyDuQWav1nxgDpXTMhruRv0t9LJk50Axo_Y",
+		authDomain: "my-news-7415.firebaseapp.com",
+		databaseURL: "//my-news-7415.firebaseio.com",
+		projectId: "my-news-7415",
+		storageBucket: "my-news-7415.appspot.com",
+		messagingSenderId: "621190054073"
+	  };
+	  firebase.initializeApp(config);
+	</script>
+  </head>
+  <body  ng-app="app">
+    
+
+          <ui-view></ui-view>
+
+          
+  
+    <!-- inject:js -->
+    <script src="/assets/jquery-3.2.1.min.js"></script>
+    <script src="/assets/perfect-scrollbar.jquery.min.js"></script>
+    <script src="/node_modules/angular/angular.js"></script>
+    <script src="/node_modules/@uirouter/angularjs/release/angular-ui-router.js"></script>
+    <script src="/assets/js/arrive.min.js"></script>
+    <script src="/assets/js/bootstrap-notify.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <script src="/assets/js/chartist.min.js"></script>
+    <script src="/assets/js/demo.js"></script>
+    <script src="/assets/js/material-dashboard.js"></script>
+    <script src="/assets/js/material.min.js"></script>
+    <script src="/app.module.js"></script>
+    <script src="/app.route.js"></script>
+    <script src="/view/add_berita.controller.js"></script>
+    <script src="/view/berita.controller.js"></script>
+    <script src="/view/detail.controller.js"></script>
+    <!-- endinject -->
+	<script src="cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+  </body>
+</html>
